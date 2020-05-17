@@ -3,15 +3,21 @@ const TodoComponent = {
     templateUrl: './app/todo/components/todoComponent/todoComponent.html',
     controllerAs: 'ctrl',
     controller: class todoComponentCtrl {
-        constructor(todoService, todoFactory) {
+        constructor(todoService, todoFactory, $scope) {
             this.editingTodo = [];
             this.todoFactory = todoFactory;
             this.todoService = todoService;
+            this.$scope = $scope;
         }
 
         $onInit() {
             this.subTitle = this.todoFactory.getSubTitle();
-            this.todoService.getTodos().then(res => this.todos = res);
+            this._getDefaultTodos(); 
+        }
+
+        async _getDefaultTodos() {
+            this.todos = await this.todoService.getTodos();
+            this.$scope.$digest();
         }
 
         complete(key) {
