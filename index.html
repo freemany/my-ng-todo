@@ -12,22 +12,13 @@
     <body>
         <div class="container">
             <h3>My Todo App</h3>
-            <div class="row" ng-app="myTodo" ng-controller="todoController">
-                <ul class="list-group">
-                    <li ng-repeat="(key, todo) in todos track by todo.id" class="list-group-item">
-                        {{todo.id}}  <span ng-class="{done: todo.done}">{{todo.name}}</span>
-                        <button ng-click="complete(key)" class="btn btn-sm btn-warning" aria-label="Complete">Done</button>
-                        <button ng-click="delete(key)" class="btn btn-sm btn-danger" aria-label="Delete">X</button>
-                        <button ng-click="edit(key)" class="btn btn-sm btn-info" aria-label="Edit">{{todo.editing ? 'Save' : 'Edit'}}</button>
-                        <input  ng-model="editingTodo[key]" class="form-control" ng-if="todo.editing">
-                    </li>
-                </ul>
-                <form>
-                    <div class="input-group mb-2 mr-sm-2"><input ng-model="newTodo" class="form-control"></div>
-                    <button ng-click="add()" class="btn btn-sm btn-primary mb-2">Add</button>
-                </form>
+            <div class="row" ng-app="todoApp" ng-controller="appController">
+                <todo></todo>
             </div>
         </div>
-        <script src="app/main.js" type="module"></script>
+        <script src='app/todo/factories/todoFactory.js'></script>
+        <script src="app/todo/services/todoService.js"></script>
+        <script src="app/todo/components/todoComponent/todoComponent.js"></script>
+        <script src="app/app.js"></script>
     </body>
 </html>

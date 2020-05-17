@@ -1,0 +1,15 @@
+<p>{{ctrl.subTitle}}</p>
+<ul class="list-group">
+    <li ng-repeat="(key, todo) in ctrl.todos track by todo.id" class="list-group-item">
+        {{todo.id}} <span ng-class="{done: todo.done}">{{todo.name}}</span>
+        <button ng-click="ctrl.complete(key)" class="btn btn-sm btn-warning" aria-label="Complete">Done</button>
+        <button ng-click="ctrl.delete(key)" class="btn btn-sm btn-danger" aria-label="Delete">X</button>
+        <button ng-click="ctrl.edit(key)" class="btn btn-sm btn-info"
+            aria-label="Edit">{{todo.editing ? 'Save' : 'Edit'}}</button>
+        <input ng-model="ctrl.editingTodo[key]" class="form-control" ng-if="ctrl.todo.editing">
+    </li>
+</ul>
+<form>
+    <div class="input-group mb-2 mr-sm-2"><input ng-model="ctrl.newTodo" class="form-control"></div>
+    <button ng-click="ctrl.add()" class="btn btn-sm btn-primary mb-2">Add</button>
+</form>
