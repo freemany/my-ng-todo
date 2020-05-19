@@ -3,7 +3,10 @@ const CompleteTodoDirective = () => {
         restrict: 'E',
         templateUrl: './app/todo/directives/completeTodoDirective.html',
         scope: {
-            todos: '=',
+            // = : two-way binding (reference)
+            // @: one-way expression (top down)
+            // &: one-way behaviour (bottom up)
+            todos: '=', 
         },
         controller: class CompleteTodoDirectiveCtrl {
             constructor($parse, $scope, $element, $attrs) {
