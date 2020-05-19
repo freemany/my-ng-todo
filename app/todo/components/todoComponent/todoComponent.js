@@ -3,7 +3,7 @@ const TodoComponent = {
     templateUrl: './app/todo/components/todoComponent/todoComponent.html',
     controllerAs: 'ctrl',
     controller: class todoComponentCtrl {
-        constructor(todoService, todoFactory, $scope) {
+        constructor($scope, todoService, todoFactory) {
             this.editingTodo = [];
             this.todoFactory = todoFactory;
             this.todoService = todoService;

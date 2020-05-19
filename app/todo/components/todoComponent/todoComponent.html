@@ -1,4 +1,5 @@
 <p>{{ctrl.subTitle}}</p>
+<div complete-todo="ctrl.todos"></div>
 <ul class="list-group">
     <li ng-repeat="(key, todo) in ctrl.todos track by todo.id" class="list-group-item">
         {{todo.id}} <span ng-class="{done: todo.done}">{{todo.name}}</span>
